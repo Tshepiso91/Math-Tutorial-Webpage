@@ -1,84 +1,107 @@
 body{
   background-color: #f0d3d3;
   font: Arial, Helvetica, Sans-serif,
+  margin:0;
+  padding:0;
+}
+
+*{
+
+  box-sizing: border-box;
 }
 
 #container{
-  width:1046px;
+  width:70%;
   margin-left:auto;
   margin-right:auto;
-
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
+/* 1. Header */
 #header{
-    height: 100px;
+    /* width:900px; */
     padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+/* 1.2 Branding Logo */
 
 #brand{
-    float: left;
+    /* float: left; */
+    flex:50%;
 }
 
 .text{
-  float: left;
+  /* float: left; */
   width:200px;
   padding: 5px;
   font-size: 15px;
   background: white url(Images/search-icon.png) right center no-repeat;
 }
 
-.submit{
-  float: right;
-  padding: 10px;
-  font-weight: bold;
-  color: #ffffff;
-  background: #A751D6;
-  border:none;
-  font-size: 15px;
-}
-
-#searchBox{
-  float:right;
-  width:400px;
-  height: 45px;
-  padding:20px 20px 0 20px;
-  margin-top: 20px;
-
-}
-
 h1 a{
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 100;
   color:#000;
   text-decoration: none;
   padding-left: 10px;
 }
 
+/* 1.3 Search Box */
+
+#searchBox{
+  /* float:right; */
+  flex: 50%;
+  min-width:400px;
+  /* height: 45px; */
+  padding-top:20px;
+  margin-top: 25px;
+  /* margin-left: 5px; */
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit{
+  /* float: right; */
+  padding: 9px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #A751D6;
+  border:none;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+/* 2. Menu */
 .clear{
   clear:both;
 }
 
 #menu{
-  height:70px;
+  /* height:70px; */
+  /* width:1070px; */
   background: linear-gradient(to right,#81cdc6,#ffffff);
   background: -webkit-linear-gradient(to right,#81cdc6,#ffffff);
   background: -o-linear-gradient(to right,#81cdc6,#ffffff);
   background: -moz-linear-gradient(to right,#81cdc6,#ffffff);
-  margin-top: 20px;
-  padding: 7px 0;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-ul{
-  list-style: none;
-}
 
-#menu ul li{
-  float:left;
+#menu a{
+  /* float:left; */
   padding:0 30px;
   height: 30px;
 }
 
-#menu ul li a{
+#menu a{
   text-decoration:none;
   text-transform: uppercase;
   font-size: 17px;
@@ -91,20 +114,31 @@ ul{
   transition: font-size 0.3s ease;
 }
 
-#menu ul li a:hover, #menu ul li a.active{
+#menu a:hover, #menu a.active{
   font-size: 20px;
   font-weight: bold;
   color:#B314DB;
 }
 
+/* small screens: vertical menu*/
+ @media screen and (max-width: 700px){
+    #menu{
+        flex-direction: column;
+        align-content: center;
+    }
+  }
+
+/* 3. Description Box */
+
 #introduction{
   background-color:#fffdc6;
-  padding:1px 0 5px 5px;
-  margin: 16px 0px;
+  padding:10px;
+  margin: 16px 0;
+  width:865px;
 }
 
 #introduction h3{
-  font-size: 45px;
+  font-size: 40px;
   font-weight: normal;
   padding-left: 5px;
 }
@@ -112,13 +146,24 @@ ul{
 #introduction p{
   font-size: 20px;
   text-align:justify;
-  padding-left: 5px;
-  padding-right: 15px;
+  /* padding-left: 5px;
+  padding-right: 15px; */
 }
 
+/* 4.Sidebar Content */
+.sidebars{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebarWrapper{
+    padding: 5px;
+    flex: 50%;
+    }
+
 .sidebar{
-  height:500px;
-  width:450px;
+  height:100%;
+  width:100%;
   border: 1px solid #5d12e7;
   border-radius: 20px;
   padding: 10px 30px;
@@ -129,10 +174,30 @@ ul{
    font-size:30px;
 }
 
+.sidebar ul{
+   padding-top: 8px;
+}
+
+
+#leftsidebar ul li {
+  padding: 4px 0 4px 10px;
+  list-style-type: circle;
+  }
+
+#rightsidebar ul li {
+  padding: 17px 0 17px 20px;
+  list-style-type: circle;
+}
+
 .sidebar ul li a{
-   text-decoration: none;
-   font-size: 20px;
-   color:#000;
+    text-decoration: none;
+    font-size: 20px;
+    color:black;
+    -webkit-transition: font-size 0.3s ease;
+    -moz-transition: font-size 0.3s ease;
+    -o-transition: font-size 0.3s ease;
+    -ms-transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease;
 }
 
 .sidebar ul li a:hover,.sidebar ul li a:hover{
@@ -145,33 +210,4 @@ ul{
   -o-transition: font-size 0.3s ease;
   -ms-transition: font-size 0.3s ease;
    transition: font-size 0.3s ease;
-}
-
-#leftsidebar{
-  float:left;
-}
-
-
-#leftsidebar ul li {
-  padding-bottom: 6px;
-  padding-left: 10px;
-  list-style-type: circle;
-}
-
-#rightsidebar{
-  float:right;
-}
-
-
-#rightsidebar ul li {
-  padding-bottom: 6px;
-  padding-left: 10px;
-  list-style-type: circle;
-}
-
-#footer{
-  height:60px;
-  background-color: #e8f4f8;
-  margin-top: 550px;
-  padding: 10px;
 }
